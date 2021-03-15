@@ -123,7 +123,7 @@ def nn_sa(x_train, y_train, x_test, y_test):
 
 def nn_ga(x_train, y_train, x_test, y_test):
     print("********************Executing Genetic Algorithm****************")
-    pop_sizes = [50, 100, 150, 200]
+    pop_sizes = [50, 100]
     learning_rates = [0.001, 0.01]
     train_acc_s = []
     test_acc_s = []
@@ -220,4 +220,7 @@ if __name__ == '__main__':
     min_max_scaler = MinMaxScaler()
     train_scaled = min_max_scaler.fit_transform(train)
     valid_scaled = min_max_scaler.transform(valid)
+    nn_rhc(train_scaled, y_train, valid_scaled, y_valid)
+    nn_sa(train_scaled, y_train, valid_scaled, y_valid)
     nn_ga(train_scaled, y_train, valid_scaled, y_valid)
+    nn_gd(train_scaled, y_train, valid_scaled, y_valid)
